@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Reshma ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 40px 20px;
+}
+
+h1 {
+  font-size: 3.2em;
+  margin-bottom: 10px;
+}
+
+.name {
+  font-size: 3.8em;
+  font-family: 'cursive';
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 25px #ffdde1; }
+}
+
+p {
+  font-size: 1.3em;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+button {
+  background: #fff;
+  color: #ff4d6d;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+#loveMessage {
+  display: none;
+  margin-top: 25px;
+  font-size: 1.5em;
+}
+
+#typedText {
+  font-size: 1.3em;
+  max-width: 700px;
+  margin: 30px auto;
+  min-height: 100px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+audio {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Happy Valentine’s Day</h1>
+  <div class="name">Reshma ❤️</div>
+
+  <p>
+    You’re not just my Valentine… you’re my favorite person, my safe place, my happiness 💕
+  </p>
+
+  <button onclick="startLove()">Will you be my Valentine? 💖</button>
+
+  <div id="loveMessage">
+    💘 I knew it. My heart chose you long ago 💘
+  </div>
+
+  <div id="typedText"></div>
+
+  <div class="gallery">
+    <!-- Replace with your photos -->
+    <img src="images/photo2.jpeg">
+    <img src="images/photo1.jpeg">
+    <img src="images/photo3.jpeg">
+  </div>
+
+  <!-- Replace with song or voice note -->
+  <audio controls autoplay loop>
+    <source src="audio/love.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+function startLove() {
+  document.getElementById("loveMessage").style.display = "block";
+  typeText();
+}
+
+// Typing effect
+const message = "Reshma, every smile of yours feels like home. Every moment with you is my favorite memory. I promise to choose you, today and always. ❤️";
+let index = 0;
+
+function typeText() {
+  if (index < message.length) {
+    document.getElementById("typedText").innerHTML += message.charAt(index);
+    index++;
+    setTimeout(typeText, 50);
+  }
+}
+
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+</script>
+
+</body>
+</html>
