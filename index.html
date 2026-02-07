@@ -5,98 +5,162 @@
 <title>Reshma ❤️</title>
 
 <style>
+:root {
+  --pink1: #ff7a8a;
+  --pink2: #ffd1d9;
+  --softWhite: rgba(255,255,255,0.95);
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--pink1), var(--pink2));
   color: white;
   text-align: center;
   overflow-x: hidden;
 }
 
 .container {
-  padding: 40px 20px;
+  padding: 60px 20px 50px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 h1 {
-  font-size: 3.2em;
-  margin-bottom: 10px;
+  font-size: 3em;
+  font-weight: 600;
 }
 
 .name {
-  font-size: 3.8em;
-  font-family: 'cursive';
-  animation: glow 2s infinite alternate;
+  font-size: 4em;
+  font-family: "Brush Script MT", cursive;
+  margin-bottom: 20px;
+  animation: glow 2.5s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 10px #fff; }
-  to { text-shadow: 0 0 25px #ffdde1; }
+  from { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
+  to { text-shadow: 0 0 30px rgba(255,255,255,0.9); }
 }
 
 p {
-  font-size: 1.3em;
-  max-width: 700px;
-  margin: 20px auto;
+  font-size: 1.35em;
+  max-width: 720px;
+  margin: 25px auto;
+  line-height: 1.6;
+  color: var(--softWhite);
 }
 
 button {
-  background: #fff;
+  background: white;
   color: #ff4d6d;
   border: none;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  border-radius: 30px;
+  padding: 16px 40px;
+  font-size: 1.15em;
+  border-radius: 40px;
   cursor: pointer;
-  transition: 0.3s;
+  margin-top: 25px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
 }
 button:hover {
-  transform: scale(1.1);
+  transform: translateY(-3px) scale(1.05);
 }
 
 #loveMessage {
   display: none;
-  margin-top: 25px;
-  font-size: 1.5em;
+  margin-top: 30px;
+  font-size: 1.6em;
 }
 
 #typedText {
-  font-size: 1.3em;
-  max-width: 700px;
-  margin: 30px auto;
-  min-height: 100px;
+  font-size: 1.35em;
+  max-width: 760px;
+  margin: 35px auto 10px;
+  min-height: 120px;
+  line-height: 1.6;
 }
+
+#countdownBox {
+  display: none;
+  font-size: 1.35em;
+  margin-top: 18px;
+  font-weight: 400;
+  opacity: 0.85;
+  letter-spacing: 0.3px;
+}
+
+#countdownBox span {
+  font-weight: 600;
+  font-size: 1.45em;
+}
+
+/* Optional subtle pulse */
+/*
+#countdownBox span {
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
+*/
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin-top: 45px;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
 }
 
 audio {
-  margin-top: 30px;
+  margin-top: 40px;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
+  opacity: 0;
 }
 
 /* Floating hearts */
 .heart {
   position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
+  bottom: -30px;
+  font-size: 18px;
+  opacity: 0.6;
+  animation: floatUp 8s linear forwards;
+}
+@keyframes floatUp {
+  from { transform: translateY(0) scale(1); opacity: 0.7; }
+  to { transform: translateY(-110vh) scale(1.4); opacity: 0; }
 }
 
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-100vh); opacity: 0; }
+/* Final screen */
+#finalScreen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #ff6b81, #ffb3c1);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 2s ease forwards;
+}
+
+#finalScreen h1 {
+  font-size: 4em;
+  font-family: "Brush Script MT", cursive;
+  text-shadow: 0 0 40px rgba(255,255,255,0.9);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 </style>
 </head>
@@ -108,46 +172,91 @@ audio {
   <div class="name">Reshma ❤️</div>
 
   <p>
-    You’re not just my Valentine… you’re my favorite person, my safe place, my happiness 💕
+    You’re not just my Valentine —  
+    you’re my calm, my happiness, my favorite person.
   </p>
 
   <button onclick="startLove()">Will you be my Valentine? 💖</button>
 
-  <div id="loveMessage">
-    💘 I knew it. My heart chose you long ago 💘
-  </div>
-
+  <div id="loveMessage">💘 My heart chose you long ago 💘</div>
   <div id="typedText"></div>
 
+  <div id="countdownBox">
+    Something special in <span id="count">25</span>…
+  </div>
+
   <div class="gallery">
-    <!-- Replace with your photos -->
     <img src="images/photo2.jpeg">
     <img src="images/photo1.jpeg">
     <img src="images/photo3.jpeg">
   </div>
 
-  <!-- Replace with song or voice note -->
-  <audio controls autoplay loop>
+  <audio id="music" controls loop>
     <source src="audio/love.mp3" type="audio/mpeg">
   </audio>
 </div>
 
+<div id="finalScreen">
+  <h1>I love you, Reshma ❤️</h1>
+</div>
+
 <script>
+const music = document.getElementById("music");
+music.volume = 0;
+
+function fadeInMusic() {
+  let v = 0;
+  const fade = setInterval(() => {
+    if (v < 0.7) {
+      v += 0.02;
+      music.volume = v;
+    } else clearInterval(fade);
+  }, 200);
+}
+
 function startLove() {
   document.getElementById("loveMessage").style.display = "block";
+  music.play();
+  fadeInMusic();
   typeText();
+  startCountdown(25);
 }
 
 // Typing effect
-const message = "Reshma, every smile of yours feels like home. Every moment with you is my favorite memory. I promise to choose you, today and always. ❤️";
-let index = 0;
+const message =
+"Reshma, every smile of yours feels like home. Every moment with you is my favorite memory. I promise to choose you — today, tomorrow, and always. ❤️";
 
+let index = 0;
 function typeText() {
   if (index < message.length) {
     document.getElementById("typedText").innerHTML += message.charAt(index);
     index++;
-    setTimeout(typeText, 50);
+    setTimeout(typeText, 45);
   }
+}
+
+// Countdown
+function startCountdown(seconds) {
+  const box = document.getElementById("countdownBox");
+  const count = document.getElementById("count");
+
+  box.style.display = "block";
+  let remaining = seconds;
+  count.innerText = remaining;
+
+  const timer = setInterval(() => {
+    remaining--;
+    count.innerText = remaining;
+
+    if (remaining <= 0) {
+      clearInterval(timer);
+      showFinal();
+    }
+  }, 1000);
+}
+
+function showFinal() {
+  document.getElementById("finalScreen").style.display = "flex";
 }
 
 // Floating hearts
@@ -156,10 +265,10 @@ setInterval(() => {
   heart.className = "heart";
   heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+  heart.style.fontSize = (Math.random() * 12 + 14) + "px";
   document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 300);
+  setTimeout(() => heart.remove(), 8000);
+}, 600);
 </script>
 
 </body>
